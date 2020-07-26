@@ -21,8 +21,8 @@ class PostDatasourceImpl implements PostDatasource {
   @override
   Future<List<Post>> getPosts(int page, int limit) async {
     try {
-      final response = await dio.get('/posts/_page=$page&_limit=$limit');
-      return (response.data as List<Map<String, dynamic>>)
+      final response = await dio.get('/posts?_page=$page&_limit=$limit');
+      return (response.data as List<dynamic>)
           .map((element) => PostModel.fromJson(element))
           .toList();
     } on DioError catch (e) {
