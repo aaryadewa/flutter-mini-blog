@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mini_blog/service_locator.dart' as serviceLocator;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await serviceLocator.init();
   runApp(MyApp());
 }
 
